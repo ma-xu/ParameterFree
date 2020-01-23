@@ -12,11 +12,10 @@ import time
 __all__ = ['pf2_resnet18', 'pf2_resnet34', 'pf2_resnet50', 'pf2_resnet101', 'pf2_resnet152']
 
 class ParamFree(nn.Module):
-    def __init__(self, channel, groups=64,mode='dotproduct'):
+    def __init__(self, groups=64):
         super(ParamFree, self).__init__()
         self.gap = nn.AdaptiveAvgPool2d(1)
         self.sig = nn.Sigmoid()
-        self.mode = mode
         self.groups = groups
 
 
@@ -25,23 +24,10 @@ class ParamFree(nn.Module):
         gap = self.gap(x)
         x = x.view(b * self.groups, -1, h * w)
         gap = gap.view(b * self.groups, -1, 1)
-        similarity = self.get_similarity(x, gap, mode=self.mode)
-        similarity = self.sig(similarity.unsqueeze(dim=1))
-
-
+        similarity = torch.matmul(x.permute(0, 2, 1), gap)
+        similarity = self.sig(similarity)
         return (x*similarity).view(b, c, h, w)
 
-
-    def get_similarity(self, query, key_value, mode='dotproduct'):
-        if mode == 'dotproduct':
-            similarity = torch.matmul(key_value.permute(0, 2, 1), query).squeeze(dim=1)
-        elif mode == 'l1norm':
-            similarity = -(abs(query - key_value)).sum(dim=1)
-        elif mode == 'cosine':
-            similarity = torch.cosine_similarity(query, key_value, dim=1)
-        else:
-            similarity = torch.matmul(key_value.permute(0, 2, 1), query)
-        return similarity
 
 def conv3x3(in_planes, out_planes, stride=1):
     """3x3 convolution with padding"""
@@ -66,7 +52,7 @@ class BasicBlock(nn.Module):
         self.bn2 = nn.BatchNorm2d(planes)
         self.downsample = downsample
         self.stride = stride
-        self.pf  = ParamFree(planes)
+        self.pf  = ParamFree()
 
     def forward(self, x):
         identity = x
@@ -99,7 +85,7 @@ class Bottleneck(nn.Module):
         self.bn2 = nn.BatchNorm2d(planes)
         self.conv3 = conv1x1(planes, planes * self.expansion)
         self.bn3 = nn.BatchNorm2d(planes * self.expansion)
-        self.pf  = ParamFree(planes * self.expansion)
+        self.pf  = ParamFree()
         self.relu = nn.ReLU(inplace=True)
         self.downsample = downsample
         self.stride = stride
