@@ -24,7 +24,7 @@ class ParamFree(nn.Module):
         gap = self.gap(x)
         x = x.view(b * self.groups, -1, h * w)
         gap = gap.view(b * self.groups, -1, 1)
-        similarity = torch.matmul(x.permute(0, 2, 1), gap)
+        similarity = torch.matmul(gap.permute(0, 2, 1), x)
         similarity = self.sig(similarity)
         return (x*similarity).view(b, c, h, w)
 
@@ -246,5 +246,5 @@ def demo2():
         print("Allocated: {}".format(torch.cuda.memory_allocated()))
     print("GPU time: {}".format(time.perf_counter() - st))
 
-# demo()
+demo()
 # demo2()
