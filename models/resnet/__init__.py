@@ -10,3 +10,4 @@ from __future__ import absolute_import
 
 from .resnet_pf import *
 from .resnet_pf2 import *
+from .resnet_pf4 import *
