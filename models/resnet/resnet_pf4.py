@@ -45,7 +45,7 @@ class BasicBlock(nn.Module):
 
         out = self.conv2(out)
         out = self.bn2(out)
-        out = out*nn.Sigmoid(out)
+        out = out*torch.sigmoid(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -84,7 +84,7 @@ class Bottleneck(nn.Module):
 
         out = self.conv3(out)
         out = self.bn3(out)
-        out = out * nn.Sigmoid(out)
+        out = out * torch.sigmoid(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -210,7 +210,7 @@ def pf4_resnet152(pretrained=False, **kwargs):
 
 def demo():
     st = time.perf_counter()
-    for i in range(100):
+    for i in range(1):
         net = pf4_resnet50(num_classes=1000)
         y = net(torch.randn(2, 3, 224,224))
         print(y.size())
