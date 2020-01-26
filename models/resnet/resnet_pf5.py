@@ -12,7 +12,7 @@ import time
 __all__ = ['pf5_resnet18', 'pf5_resnet34', 'pf5_resnet50', 'pf5_resnet101', 'pf5_resnet152']
 
 class ParamFree(nn.Module):
-    def __init__(self, channel, groups=64,mode='cosine'):
+    def __init__(self, channel, groups=64,mode='dotproduct'):
         super(ParamFree, self).__init__()
         self.gap = nn.AdaptiveAvgPool2d(1)
         self.sig = nn.Sigmoid()
