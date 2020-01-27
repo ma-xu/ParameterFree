@@ -267,7 +267,7 @@ def main():
     pipe.build()
     train_loader = DALIClassificationIterator(pipe, size=int(pipe.epoch_size("Reader") / args.world_size))
 
-    pipe = HybridValPipe(batch_size=args.batch_size, num_threads=args.workers, device_id=args.local_rank, data_dir=valdir, crop=crop_size, size=val_size)
+    pipe = HybridValPipe(batch_size=args.batch_size//2, num_threads=args.workers//2, device_id=args.local_rank, data_dir=valdir, crop=crop_size, size=val_size)
     pipe.build()
     val_loader = DALIClassificationIterator(pipe, size=int(pipe.epoch_size("Reader") / args.world_size))
 
