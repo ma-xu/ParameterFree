@@ -14,3 +14,5 @@ from .resnet_pf4 import *
 from .resnet_pf5 import *
 from .resnet_pf6 import *
 from .resnet_pf7 import *
+from .resnet_pf8 import *
+from .resnet_pf9 import *
