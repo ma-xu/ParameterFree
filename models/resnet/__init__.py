@@ -21,3 +21,7 @@ from .resnet_pf11 import *
 from .resnet_pf12 import *
 from .resnet_pf13 import *
 from .resnet_pf14 import *
+from .resnet_pf15 import *
+from .resnet_pf16 import *
+from .resnet_pf17 import *
+from .resnet_pf18 import *
