@@ -9,7 +9,7 @@ from collections import OrderedDict
 import math
 import time
 
-__all__ = ['pf13__resnet18', 'pf13__resnet34', 'pf13__resnet50', 'pf13__resnet101', 'pf13__resnet152']
+__all__ = ['pf13_resnet18', 'pf13_resnet34', 'pf13_resnet50', 'pf13_resnet101', 'pf13_resnet152']
 
 class ParamFree(nn.Module):
     def __init__(self, channel, groups=32,mode='dotproduct'):
@@ -199,7 +199,7 @@ class ResNet(nn.Module):
         return x
 
 
-def pf13__resnet18(pretrained=False, **kwargs):
+def pf13_resnet18(pretrained=False, **kwargs):
     """Constructs a ResNet-18 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
@@ -208,7 +208,7 @@ def pf13__resnet18(pretrained=False, **kwargs):
     return model
 
 
-def pf13__resnet34(pretrained=False, **kwargs):
+def pf13_resnet34(pretrained=False, **kwargs):
     """Constructs a ResNet-34 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
@@ -217,7 +217,7 @@ def pf13__resnet34(pretrained=False, **kwargs):
     return model
 
 
-def pf13__resnet50(pretrained=False, **kwargs):
+def pf13_resnet50(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
@@ -226,7 +226,7 @@ def pf13__resnet50(pretrained=False, **kwargs):
     return model
 
 
-def pf13__resnet101(pretrained=False, **kwargs):
+def pf13_resnet101(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
@@ -235,7 +235,7 @@ def pf13__resnet101(pretrained=False, **kwargs):
     return model
 
 
-def pf13__resnet152(pretrained=False, **kwargs):
+def pf13_resnet152(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
@@ -249,7 +249,7 @@ def pf13__resnet152(pretrained=False, **kwargs):
 def demo():
     st = time.perf_counter()
     for i in range(1):
-        net = pf13__resnet50(num_classes=1000)
+        net = pf13_resnet50(num_classes=1000)
         y = net(torch.randn(2, 3, 224,224))
         print(y.size())
     print("CPU time: {}".format(time.perf_counter() - st))
@@ -257,7 +257,7 @@ def demo():
 def demo2():
     st = time.perf_counter()
     for i in range(100):
-        net = pf13__resnet50(num_classes=1000).cuda()
+        net = pf13_resnet50(num_classes=1000).cuda()
         y = net(torch.randn(2, 3, 224,224).cuda())
         print(y.size())
         print("Allocated: {}".format(torch.cuda.memory_allocated()))
