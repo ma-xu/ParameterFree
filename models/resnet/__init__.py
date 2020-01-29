@@ -20,3 +20,4 @@ from .resnet_pf10 import *
 from .resnet_pf11 import *
 from .resnet_pf12 import *
 from .resnet_pf13 import *
+from .resnet_pf14 import *
