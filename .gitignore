@@ -5,3 +5,7 @@
 .idea/*
 
 *.xml
+
+*.pyc
+
+*.pyc
