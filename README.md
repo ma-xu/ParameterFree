@@ -1,5 +1,5 @@
 # Cascaded Context Dependency: An Extremely Lightweight Module for Deep Convolutional Neural Networks
-Xu Ma, Zhinan Qiao, Jingda Guo, Sihai Tang, Qi Chen, Qing Yang, Song Fu<br>
+Xu Ma, Zhinan Qiao, Jingda Guo, Sihai Tang, Qi Chen, Qing Yang, Song Fu :envelope:<br>
 (Submitted to ICIP2020)
 <br><br>
 
