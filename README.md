@@ -42,7 +42,7 @@ Table 2: Detection performances (%) with different backbones on the MS-COCO vali
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |Retina|ResNet50|36.2|55.9|38.5|19.4|39.8|48.3|[model](https://drive.google.com/open?id=1imZvUrwg6Vy6TFRLAsL62FsF-DyizZXR) [log](https://drive.google.com/open?id=14rRmHai_9ghL5oC-1DTTiLrt4w_HY0Yl)
 |Retina|SE-ResNet50|37.4|57.8|39.8|20.6|40.8|50.3|[model](https://drive.google.com/open?id=1ivzPfC_JhpO7DPs6vzlHGxkZBf2sC60p) [log](https://drive.google.com/open?id=1mKctgPjf9QbEXTeSm_-J_kqeiVNGuMT7)
-|Retina|DCA-SE-ResNet50|**37.7**|**58.2**|**40.1**|**20.8**|**40.9**|**50.4**|[model](https://drive.google.com/open?id=18RMzZOCWlALy1_H_Fzgwt9mAxWSU7TYj) [log](https://drive.google.com/open?id=14Sd5OQ4P8okI-Z63avm09HaA4NNQfTxs)
+|Retina|CCD-ResNet50|**37.8**|**58.5**|**40.1**|**21.6**|**41.5**|**50.9**|[model](https://drive.google.com/open?id=1StYpULhwgCwG_ZacBR1bRFqbgt6FRHZr) [log](https://drive.google.com/open?id=1ADWdGj2NcuiK2SCExfWKM8ovypBC68FL)
 Cascade R-CNN|ResNet50|40.6|58.9|44.2|22.4|43.7|**54.7**|[model](https://drive.google.com/open?id=1jGUT2KsFggLSJMkH0cgJUJV_p_cSM-7f) [log](https://drive.google.com/open?id=13g-4XlMlySVUJyrvWeU5FVCA--cojaCk)
 Cascade R-CNN|GC-ResNet50|41.1|59.7|44.6|**23.6**|44.1|54.3|[model](https://drive.google.com/open?id=19cv3TReITDMJuvmAleGzzt3H39iq3pYl) [log](https://drive.google.com/open?id=1uCcKukd4HKtxIc1uUfKydd-_NIPnj9_i)
-Cascade R-CNN|DCA-GC-ResNet50|**41.4**|**60.2**|**44.7**|22.8|**45.0**|54.2|[model](https://drive.google.com/open?id=1JRmfIg-8Ia0GdMripIHZUVwwPM1hDu6F) [log](https://drive.google.com/open?id=1bbM9Fq2MhrmClcZ-EncniI4nqcGuLEPF)
+Cascade R-CNN|CCD-ResNet50|**42.5**|**61.1**|**46.4**|24.7|**45.9**|56.5|[model](https://drive.google.com/open?id=1655frDSIzUpxjOD4Bt2-l6w0D5DBo2Yn) [log](https://drive.google.com/open?id=1655frDSIzUpxjOD4Bt2-l6w0D5DBo2Yn)
