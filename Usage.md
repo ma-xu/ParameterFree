@@ -1,5 +1,5 @@
 # Usage
-This file will showcase how to reproduce our DCANet work.
+This file will showcase how to reproduce our work.
 
 ## Requirement
 python 3.6+ (tested in 3.7)<br>
